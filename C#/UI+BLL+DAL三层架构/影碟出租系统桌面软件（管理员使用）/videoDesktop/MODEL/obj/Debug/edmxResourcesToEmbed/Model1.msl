@@ -1,0 +1,117 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="videoModelStoreContainer" CdmEntityContainer="videoEntities">
+    <EntitySetMapping Name="admininfo">
+      <EntityTypeMapping TypeName="videoModel.admininfo">
+        <MappingFragment StoreEntitySet="admininfo">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="adminid" ColumnName="adminid" />
+          <ScalarProperty Name="adminname" ColumnName="adminname" />
+          <ScalarProperty Name="age" ColumnName="age" />
+          <ScalarProperty Name="worktime" ColumnName="worktime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="adminlogin">
+      <EntityTypeMapping TypeName="videoModel.adminlogin">
+        <MappingFragment StoreEntitySet="adminlogin">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="adminid" ColumnName="adminid" />
+          <ScalarProperty Name="password" ColumnName="password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="clientinfo">
+      <EntityTypeMapping TypeName="videoModel.clientinfo">
+        <MappingFragment StoreEntitySet="clientinfo">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="clientid" ColumnName="clientid" />
+          <ScalarProperty Name="clientname" ColumnName="clientname" />
+          <ScalarProperty Name="telphone" ColumnName="telphone" />
+          <ScalarProperty Name="email" ColumnName="email" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="clientlogin">
+      <EntityTypeMapping TypeName="videoModel.clientlogin">
+        <MappingFragment StoreEntitySet="clientlogin">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="clientid" ColumnName="clientid" />
+          <ScalarProperty Name="password" ColumnName="password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="contact">
+      <EntityTypeMapping TypeName="videoModel.contact">
+        <MappingFragment StoreEntitySet="contact">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="telphone" ColumnName="telphone" />
+          <ScalarProperty Name="message" ColumnName="message" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="hireinfo">
+      <EntityTypeMapping TypeName="videoModel.hireinfo">
+        <MappingFragment StoreEntitySet="hireinfo">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="videoid" ColumnName="videoid" />
+          <ScalarProperty Name="clientid" ColumnName="clientid" />
+          <ScalarProperty Name="adminid" ColumnName="adminid" />
+          <ScalarProperty Name="isreturn" ColumnName="isreturn" />
+          <ScalarProperty Name="borrowtime" ColumnName="borrowtime" />
+          <ScalarProperty Name="returntime" ColumnName="returntime" />
+          <ScalarProperty Name="rent" ColumnName="rent" />
+          <ScalarProperty Name="shouldtime" ColumnName="shouldtime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="recommend">
+      <EntityTypeMapping TypeName="videoModel.recommend">
+        <MappingFragment StoreEntitySet="recommend">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="videoid" ColumnName="videoid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="review">
+      <EntityTypeMapping TypeName="videoModel.review">
+        <MappingFragment StoreEntitySet="review">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="videoid" ColumnName="videoid" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="message" ColumnName="message" />
+          <ScalarProperty Name="reviewtime" ColumnName="reviewtime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="videoModel.sysdiagrams">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="videoinfo">
+      <EntityTypeMapping TypeName="videoModel.videoinfo">
+        <MappingFragment StoreEntitySet="videoinfo">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="videoid" ColumnName="videoid" />
+          <ScalarProperty Name="videoname" ColumnName="videoname" />
+          <ScalarProperty Name="number" ColumnName="number" />
+          <ScalarProperty Name="price" ColumnName="price" />
+          <ScalarProperty Name="buydate" ColumnName="buydate" />
+          <ScalarProperty Name="describe" ColumnName="describe" />
+          <ScalarProperty Name="imageurl" ColumnName="imageurl" />
+          <ScalarProperty Name="clickrate" ColumnName="clickrate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

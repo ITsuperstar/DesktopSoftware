@@ -1,0 +1,13 @@
+F:\VS2012 工作目录\Web应用\自做项目\videoDesktop\BLL\bin\Debug\BLL.dll
+F:\VS2012 工作目录\Web应用\自做项目\videoDesktop\BLL\bin\Debug\BLL.pdb
+F:\VS2012 工作目录\Web应用\自做项目\videoDesktop\BLL\bin\Debug\DAL.dll
+F:\VS2012 工作目录\Web应用\自做项目\videoDesktop\BLL\bin\Debug\MODEL.dll
+F:\VS2012 工作目录\Web应用\自做项目\videoDesktop\BLL\bin\Debug\TOOL.dll
+F:\VS2012 工作目录\Web应用\自做项目\videoDesktop\BLL\bin\Debug\DAL.pdb
+F:\VS2012 工作目录\Web应用\自做项目\videoDesktop\BLL\bin\Debug\MODEL.pdb
+F:\VS2012 工作目录\Web应用\自做项目\videoDesktop\BLL\bin\Debug\TOOL.pdb
+F:\VS2012 工作目录\Web应用\自做项目\videoDesktop\BLL\obj\Debug\BLL.csprojResolveAssemblyReference.cache
+F:\VS2012 工作目录\Web应用\自做项目\videoDesktop\BLL\obj\Debug\BLL.dll
+F:\VS2012 工作目录\Web应用\自做项目\videoDesktop\BLL\obj\Debug\BLL.pdb
+F:\VS2012 工作目录\Web应用\自做项目\videoDesktop\BLL\bin\Debug\EntityFramework.dll
+F:\VS2012 工作目录\Web应用\自做项目\videoDesktop\BLL\bin\Debug\EntityFramework.xml

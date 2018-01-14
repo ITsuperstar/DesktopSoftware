@@ -1,0 +1,252 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="videoModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="videoModelStoreContainer">
+    <EntitySet Name="admininfo" EntityType="videoModel.Store.admininfo" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="adminlogin" EntityType="videoModel.Store.adminlogin" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="clientinfo" EntityType="videoModel.Store.clientinfo" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="clientlogin" EntityType="videoModel.Store.clientlogin" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="contact" EntityType="videoModel.Store.contact" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="hireinfo" EntityType="videoModel.Store.hireinfo" store:Type="Tables" store:Schema="dbo" store:Name="hireinfo">
+      <DefiningQuery>SELECT 
+      [hireinfo].[id] AS [id], 
+      [hireinfo].[videoid] AS [videoid], 
+      [hireinfo].[clientid] AS [clientid], 
+      [hireinfo].[adminid] AS [adminid], 
+      [hireinfo].[isreturn] AS [isreturn], 
+      [hireinfo].[borrowtime] AS [borrowtime], 
+      [hireinfo].[returntime] AS [returntime], 
+      [hireinfo].[rent] AS [rent], 
+      [hireinfo].[shouldtime] AS [shouldtime]
+      FROM [dbo].[hireinfo] AS [hireinfo]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="recommend" EntityType="videoModel.Store.recommend" store:Type="Tables" store:Schema="dbo" store:Name="recommend">
+      <DefiningQuery>SELECT 
+      [recommend].[id] AS [id], 
+      [recommend].[videoid] AS [videoid]
+      FROM [dbo].[recommend] AS [recommend]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="review" EntityType="videoModel.Store.review" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="sysdiagrams" EntityType="videoModel.Store.sysdiagrams" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="videoinfo" EntityType="videoModel.Store.videoinfo" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="FK_adminlogin_admininfo" Association="videoModel.Store.FK_adminlogin_admininfo">
+      <End Role="admininfo" EntitySet="admininfo" />
+      <End Role="adminlogin" EntitySet="adminlogin" />
+    </AssociationSet>
+    <AssociationSet Name="FK_clientlogin_clientinfo" Association="videoModel.Store.FK_clientlogin_clientinfo">
+      <End Role="clientinfo" EntitySet="clientinfo" />
+      <End Role="clientlogin" EntitySet="clientlogin" />
+    </AssociationSet>
+    <AssociationSet Name="FK_hireinfo_admininfo" Association="videoModel.Store.FK_hireinfo_admininfo">
+      <End Role="admininfo" EntitySet="admininfo" />
+      <End Role="hireinfo" EntitySet="hireinfo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_hireinfo_clientinfo" Association="videoModel.Store.FK_hireinfo_clientinfo">
+      <End Role="clientinfo" EntitySet="clientinfo" />
+      <End Role="hireinfo" EntitySet="hireinfo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_hireinfo_videoinfo" Association="videoModel.Store.FK_hireinfo_videoinfo">
+      <End Role="videoinfo" EntitySet="videoinfo" />
+      <End Role="hireinfo" EntitySet="hireinfo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_recommend_videoinfo" Association="videoModel.Store.FK_recommend_videoinfo">
+      <End Role="videoinfo" EntitySet="videoinfo" />
+      <End Role="recommend" EntitySet="recommend" />
+    </AssociationSet>
+    <AssociationSet Name="FK_review_videoinfo" Association="videoModel.Store.FK_review_videoinfo">
+      <End Role="videoinfo" EntitySet="videoinfo" />
+      <End Role="review" EntitySet="review" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="admininfo">
+    <Key>
+      <PropertyRef Name="adminid" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="adminid" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="adminname" Type="nvarchar" MaxLength="50" />
+    <Property Name="age" Type="int" />
+    <Property Name="worktime" Type="date" />
+  </EntityType>
+  <EntityType Name="adminlogin">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="adminid" Type="nvarchar" MaxLength="50" />
+    <Property Name="password" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="clientinfo">
+    <Key>
+      <PropertyRef Name="clientid" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="clientid" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="clientname" Type="nvarchar" MaxLength="50" />
+    <Property Name="telphone" Type="nvarchar" MaxLength="20" />
+    <Property Name="email" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="clientlogin">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="clientid" Type="nvarchar" MaxLength="50" />
+    <Property Name="password" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="contact">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="nvarchar" MaxLength="50" />
+    <Property Name="email" Type="nvarchar" MaxLength="50" />
+    <Property Name="telphone" Type="nvarchar" MaxLength="20" />
+    <Property Name="message" Type="ntext" />
+  </EntityType>
+  <!--生成过程中发现错误:
+      警告 6002: 表/视图“video.dbo.hireinfo”未定义主键。已推断出该键，并将定义创建为只读的表/视图。
+      -->
+  <EntityType Name="hireinfo">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="videoid" Type="nvarchar" MaxLength="50" />
+    <Property Name="clientid" Type="nvarchar" MaxLength="50" />
+    <Property Name="adminid" Type="nvarchar" MaxLength="50" />
+    <Property Name="isreturn" Type="int" />
+    <Property Name="borrowtime" Type="datetime" />
+    <Property Name="returntime" Type="datetime" />
+    <Property Name="rent" Type="float" />
+    <Property Name="shouldtime" Type="datetime" />
+  </EntityType>
+  <!--生成过程中发现错误:
+      警告 6002: 表/视图“video.dbo.recommend”未定义主键。已推断出该键，并将定义创建为只读的表/视图。
+      -->
+  <EntityType Name="recommend">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="videoid" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="review">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="videoid" Type="nvarchar" MaxLength="50" />
+    <Property Name="name" Type="nvarchar" MaxLength="50" />
+    <Property Name="email" Type="nvarchar" MaxLength="50" />
+    <Property Name="message" Type="ntext" />
+    <Property Name="reviewtime" Type="datetime" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" Nullable="false" MaxLength="128" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="videoinfo">
+    <Key>
+      <PropertyRef Name="videoid" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="videoid" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="videoname" Type="nvarchar" MaxLength="50" />
+    <Property Name="number" Type="int" />
+    <Property Name="price" Type="float" />
+    <Property Name="buydate" Type="date" />
+    <Property Name="describe" Type="nvarchar" MaxLength="100" />
+    <Property Name="imageurl" Type="nvarchar" MaxLength="100" />
+    <Property Name="clickrate" Type="int" />
+  </EntityType>
+  <Association Name="FK_adminlogin_admininfo">
+    <End Role="admininfo" Type="videoModel.Store.admininfo" Multiplicity="0..1" />
+    <End Role="adminlogin" Type="videoModel.Store.adminlogin" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="admininfo">
+        <PropertyRef Name="adminid" />
+      </Principal>
+      <Dependent Role="adminlogin">
+        <PropertyRef Name="adminid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_clientlogin_clientinfo">
+    <End Role="clientinfo" Type="videoModel.Store.clientinfo" Multiplicity="0..1" />
+    <End Role="clientlogin" Type="videoModel.Store.clientlogin" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="clientinfo">
+        <PropertyRef Name="clientid" />
+      </Principal>
+      <Dependent Role="clientlogin">
+        <PropertyRef Name="clientid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_hireinfo_admininfo">
+    <End Role="admininfo" Type="videoModel.Store.admininfo" Multiplicity="0..1" />
+    <End Role="hireinfo" Type="videoModel.Store.hireinfo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="admininfo">
+        <PropertyRef Name="adminid" />
+      </Principal>
+      <Dependent Role="hireinfo">
+        <PropertyRef Name="adminid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_hireinfo_clientinfo">
+    <End Role="clientinfo" Type="videoModel.Store.clientinfo" Multiplicity="0..1" />
+    <End Role="hireinfo" Type="videoModel.Store.hireinfo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="clientinfo">
+        <PropertyRef Name="clientid" />
+      </Principal>
+      <Dependent Role="hireinfo">
+        <PropertyRef Name="clientid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_hireinfo_videoinfo">
+    <End Role="videoinfo" Type="videoModel.Store.videoinfo" Multiplicity="0..1" />
+    <End Role="hireinfo" Type="videoModel.Store.hireinfo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="videoinfo">
+        <PropertyRef Name="videoid" />
+      </Principal>
+      <Dependent Role="hireinfo">
+        <PropertyRef Name="videoid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_recommend_videoinfo">
+    <End Role="videoinfo" Type="videoModel.Store.videoinfo" Multiplicity="0..1" />
+    <End Role="recommend" Type="videoModel.Store.recommend" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="videoinfo">
+        <PropertyRef Name="videoid" />
+      </Principal>
+      <Dependent Role="recommend">
+        <PropertyRef Name="videoid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_review_videoinfo">
+    <End Role="videoinfo" Type="videoModel.Store.videoinfo" Multiplicity="0..1" />
+    <End Role="review" Type="videoModel.Store.review" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="videoinfo">
+        <PropertyRef Name="videoid" />
+      </Principal>
+      <Dependent Role="review">
+        <PropertyRef Name="videoid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

@@ -1,0 +1,201 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{B3E1E3CC-3CDF-4D63-ADCF-D4909944FC81}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>UI</RootNamespace>
+    <AssemblyName>UI</AssemblyName>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="clientAdd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="clientAdd.Designer.cs">
+      <DependentUpon>clientAdd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="clientMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="clientMain.Designer.cs">
+      <DependentUpon>clientMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="clientUpdate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="clientUpdate.Designer.cs">
+      <DependentUpon>clientUpdate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="hireAdd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="hireAdd.Designer.cs">
+      <DependentUpon>hireAdd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="hireMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="hireMain.Designer.cs">
+      <DependentUpon>hireMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="hireUpdate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="hireUpdate.Designer.cs">
+      <DependentUpon>hireUpdate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="index.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="index.Designer.cs">
+      <DependentUpon>index.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="returnVideo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="returnVideo.Designer.cs">
+      <DependentUpon>returnVideo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="videoAdd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="videoAdd.Designer.cs">
+      <DependentUpon>videoAdd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="videoMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="videoMain.Designer.cs">
+      <DependentUpon>videoMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="videoUpdate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="videoUpdate.Designer.cs">
+      <DependentUpon>videoUpdate.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="clientAdd.resx">
+      <DependentUpon>clientAdd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="clientMain.resx">
+      <DependentUpon>clientMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="clientUpdate.resx">
+      <DependentUpon>clientUpdate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="hireAdd.resx">
+      <DependentUpon>hireAdd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="hireMain.resx">
+      <DependentUpon>hireMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="hireUpdate.resx">
+      <DependentUpon>hireUpdate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="index.resx">
+      <DependentUpon>index.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="returnVideo.resx">
+      <DependentUpon>returnVideo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="videoAdd.resx">
+      <DependentUpon>videoAdd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="videoMain.resx">
+      <DependentUpon>videoMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="videoUpdate.resx">
+      <DependentUpon>videoUpdate.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BLL\BLL.csproj">
+      <Project>{0d7e1ac1-3c56-46f6-8b1b-b037da2e0cad}</Project>
+      <Name>BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MODEL\MODEL.csproj">
+      <Project>{7c7dc914-3789-411d-98c1-16c61cf6172a}</Project>
+      <Name>MODEL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TOOL\TOOL.csproj">
+      <Project>{ca478dca-540f-482e-8414-039afeaf64f5}</Project>
+      <Name>TOOL</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

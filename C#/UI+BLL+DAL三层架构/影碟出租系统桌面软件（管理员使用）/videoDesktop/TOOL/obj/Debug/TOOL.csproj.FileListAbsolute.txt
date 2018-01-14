@@ -1,0 +1,5 @@
+F:\VS2012 工作目录\Web应用\自做项目\videoDesktop\TOOL\bin\Debug\TOOL.dll
+F:\VS2012 工作目录\Web应用\自做项目\videoDesktop\TOOL\bin\Debug\TOOL.pdb
+F:\VS2012 工作目录\Web应用\自做项目\videoDesktop\TOOL\obj\Debug\TOOL.dll
+F:\VS2012 工作目录\Web应用\自做项目\videoDesktop\TOOL\obj\Debug\TOOL.pdb
+F:\VS2012 工作目录\Web应用\自做项目\videoDesktop\TOOL\obj\Debug\TOOL.csprojResolveAssemblyReference.cache

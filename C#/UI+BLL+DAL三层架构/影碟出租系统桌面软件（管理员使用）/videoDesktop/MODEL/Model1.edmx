@@ -1,0 +1,642 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="videoModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityContainer Name="videoModelStoreContainer">
+          <EntitySet Name="admininfo" EntityType="videoModel.Store.admininfo" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="adminlogin" EntityType="videoModel.Store.adminlogin" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="clientinfo" EntityType="videoModel.Store.clientinfo" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="clientlogin" EntityType="videoModel.Store.clientlogin" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="contact" EntityType="videoModel.Store.contact" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="hireinfo" EntityType="videoModel.Store.hireinfo" store:Type="Tables" store:Schema="dbo" store:Name="hireinfo">
+            <DefiningQuery>SELECT 
+      [hireinfo].[id] AS [id], 
+      [hireinfo].[videoid] AS [videoid], 
+      [hireinfo].[clientid] AS [clientid], 
+      [hireinfo].[adminid] AS [adminid], 
+      [hireinfo].[isreturn] AS [isreturn], 
+      [hireinfo].[borrowtime] AS [borrowtime], 
+      [hireinfo].[returntime] AS [returntime], 
+      [hireinfo].[rent] AS [rent], 
+      [hireinfo].[shouldtime] AS [shouldtime]
+      FROM [dbo].[hireinfo] AS [hireinfo]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="recommend" EntityType="videoModel.Store.recommend" store:Type="Tables" store:Schema="dbo" store:Name="recommend">
+            <DefiningQuery>SELECT 
+      [recommend].[id] AS [id], 
+      [recommend].[videoid] AS [videoid]
+      FROM [dbo].[recommend] AS [recommend]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="review" EntityType="videoModel.Store.review" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="sysdiagrams" EntityType="videoModel.Store.sysdiagrams" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="videoinfo" EntityType="videoModel.Store.videoinfo" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_adminlogin_admininfo" Association="videoModel.Store.FK_adminlogin_admininfo">
+            <End Role="admininfo" EntitySet="admininfo" />
+            <End Role="adminlogin" EntitySet="adminlogin" />
+          </AssociationSet>
+          <AssociationSet Name="FK_clientlogin_clientinfo" Association="videoModel.Store.FK_clientlogin_clientinfo">
+            <End Role="clientinfo" EntitySet="clientinfo" />
+            <End Role="clientlogin" EntitySet="clientlogin" />
+          </AssociationSet>
+          <AssociationSet Name="FK_hireinfo_admininfo" Association="videoModel.Store.FK_hireinfo_admininfo">
+            <End Role="admininfo" EntitySet="admininfo" />
+            <End Role="hireinfo" EntitySet="hireinfo" />
+          </AssociationSet>
+          <AssociationSet Name="FK_hireinfo_clientinfo" Association="videoModel.Store.FK_hireinfo_clientinfo">
+            <End Role="clientinfo" EntitySet="clientinfo" />
+            <End Role="hireinfo" EntitySet="hireinfo" />
+          </AssociationSet>
+          <AssociationSet Name="FK_hireinfo_videoinfo" Association="videoModel.Store.FK_hireinfo_videoinfo">
+            <End Role="videoinfo" EntitySet="videoinfo" />
+            <End Role="hireinfo" EntitySet="hireinfo" />
+          </AssociationSet>
+          <AssociationSet Name="FK_recommend_videoinfo" Association="videoModel.Store.FK_recommend_videoinfo">
+            <End Role="videoinfo" EntitySet="videoinfo" />
+            <End Role="recommend" EntitySet="recommend" />
+          </AssociationSet>
+          <AssociationSet Name="FK_review_videoinfo" Association="videoModel.Store.FK_review_videoinfo">
+            <End Role="videoinfo" EntitySet="videoinfo" />
+            <End Role="review" EntitySet="review" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="admininfo">
+          <Key>
+            <PropertyRef Name="adminid" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="adminid" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="adminname" Type="nvarchar" MaxLength="50" />
+          <Property Name="age" Type="int" />
+          <Property Name="worktime" Type="date" />
+        </EntityType>
+        <EntityType Name="adminlogin">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="adminid" Type="nvarchar" MaxLength="50" />
+          <Property Name="password" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="clientinfo">
+          <Key>
+            <PropertyRef Name="clientid" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="clientid" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="clientname" Type="nvarchar" MaxLength="50" />
+          <Property Name="telphone" Type="nvarchar" MaxLength="20" />
+          <Property Name="email" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="clientlogin">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="clientid" Type="nvarchar" MaxLength="50" />
+          <Property Name="password" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="contact">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="nvarchar" MaxLength="50" />
+          <Property Name="email" Type="nvarchar" MaxLength="50" />
+          <Property Name="telphone" Type="nvarchar" MaxLength="20" />
+          <Property Name="message" Type="ntext" />
+        </EntityType>
+        <!--生成过程中发现错误:
+      警告 6002: 表/视图“video.dbo.hireinfo”未定义主键。已推断出该键，并将定义创建为只读的表/视图。
+      -->
+        <EntityType Name="hireinfo">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="videoid" Type="nvarchar" MaxLength="50" />
+          <Property Name="clientid" Type="nvarchar" MaxLength="50" />
+          <Property Name="adminid" Type="nvarchar" MaxLength="50" />
+          <Property Name="isreturn" Type="int" />
+          <Property Name="borrowtime" Type="datetime" />
+          <Property Name="returntime" Type="datetime" />
+          <Property Name="rent" Type="float" />
+          <Property Name="shouldtime" Type="datetime" />
+        </EntityType>
+        <!--生成过程中发现错误:
+      警告 6002: 表/视图“video.dbo.recommend”未定义主键。已推断出该键，并将定义创建为只读的表/视图。
+      -->
+        <EntityType Name="recommend">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="videoid" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="review">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="videoid" Type="nvarchar" MaxLength="50" />
+          <Property Name="name" Type="nvarchar" MaxLength="50" />
+          <Property Name="email" Type="nvarchar" MaxLength="50" />
+          <Property Name="message" Type="ntext" />
+          <Property Name="reviewtime" Type="datetime" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" Nullable="false" MaxLength="128" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="videoinfo">
+          <Key>
+            <PropertyRef Name="videoid" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="videoid" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="videoname" Type="nvarchar" MaxLength="50" />
+          <Property Name="number" Type="int" />
+          <Property Name="price" Type="float" />
+          <Property Name="buydate" Type="date" />
+          <Property Name="describe" Type="nvarchar" MaxLength="100" />
+          <Property Name="imageurl" Type="nvarchar" MaxLength="100" />
+          <Property Name="clickrate" Type="int" />
+        </EntityType>
+        <Association Name="FK_adminlogin_admininfo">
+          <End Role="admininfo" Type="videoModel.Store.admininfo" Multiplicity="0..1" />
+          <End Role="adminlogin" Type="videoModel.Store.adminlogin" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="admininfo">
+              <PropertyRef Name="adminid" />
+            </Principal>
+            <Dependent Role="adminlogin">
+              <PropertyRef Name="adminid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_clientlogin_clientinfo">
+          <End Role="clientinfo" Type="videoModel.Store.clientinfo" Multiplicity="0..1" />
+          <End Role="clientlogin" Type="videoModel.Store.clientlogin" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="clientinfo">
+              <PropertyRef Name="clientid" />
+            </Principal>
+            <Dependent Role="clientlogin">
+              <PropertyRef Name="clientid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_hireinfo_admininfo">
+          <End Role="admininfo" Type="videoModel.Store.admininfo" Multiplicity="0..1" />
+          <End Role="hireinfo" Type="videoModel.Store.hireinfo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="admininfo">
+              <PropertyRef Name="adminid" />
+            </Principal>
+            <Dependent Role="hireinfo">
+              <PropertyRef Name="adminid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_hireinfo_clientinfo">
+          <End Role="clientinfo" Type="videoModel.Store.clientinfo" Multiplicity="0..1" />
+          <End Role="hireinfo" Type="videoModel.Store.hireinfo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="clientinfo">
+              <PropertyRef Name="clientid" />
+            </Principal>
+            <Dependent Role="hireinfo">
+              <PropertyRef Name="clientid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_hireinfo_videoinfo">
+          <End Role="videoinfo" Type="videoModel.Store.videoinfo" Multiplicity="0..1" />
+          <End Role="hireinfo" Type="videoModel.Store.hireinfo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="videoinfo">
+              <PropertyRef Name="videoid" />
+            </Principal>
+            <Dependent Role="hireinfo">
+              <PropertyRef Name="videoid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_recommend_videoinfo">
+          <End Role="videoinfo" Type="videoModel.Store.videoinfo" Multiplicity="0..1" />
+          <End Role="recommend" Type="videoModel.Store.recommend" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="videoinfo">
+              <PropertyRef Name="videoid" />
+            </Principal>
+            <Dependent Role="recommend">
+              <PropertyRef Name="videoid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_review_videoinfo">
+          <End Role="videoinfo" Type="videoModel.Store.videoinfo" Multiplicity="0..1" />
+          <End Role="review" Type="videoModel.Store.review" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="videoinfo">
+              <PropertyRef Name="videoid" />
+            </Principal>
+            <Dependent Role="review">
+              <PropertyRef Name="videoid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="videoModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="videoEntities" p1:LazyLoadingEnabled="true">
+          <EntitySet Name="admininfo" EntityType="videoModel.admininfo" />
+          <EntitySet Name="adminlogin" EntityType="videoModel.adminlogin" />
+          <EntitySet Name="clientinfo" EntityType="videoModel.clientinfo" />
+          <EntitySet Name="clientlogin" EntityType="videoModel.clientlogin" />
+          <EntitySet Name="contact" EntityType="videoModel.contact" />
+          <EntitySet Name="hireinfo" EntityType="videoModel.hireinfo" />
+          <EntitySet Name="recommend" EntityType="videoModel.recommend" />
+          <EntitySet Name="review" EntityType="videoModel.review" />
+          <EntitySet Name="sysdiagrams" EntityType="videoModel.sysdiagrams" />
+          <EntitySet Name="videoinfo" EntityType="videoModel.videoinfo" />
+          <AssociationSet Name="FK_adminlogin_admininfo" Association="videoModel.FK_adminlogin_admininfo">
+            <End Role="admininfo" EntitySet="admininfo" />
+            <End Role="adminlogin" EntitySet="adminlogin" />
+          </AssociationSet>
+          <AssociationSet Name="FK_hireinfo_admininfo" Association="videoModel.FK_hireinfo_admininfo">
+            <End Role="admininfo" EntitySet="admininfo" />
+            <End Role="hireinfo" EntitySet="hireinfo" />
+          </AssociationSet>
+          <AssociationSet Name="FK_clientlogin_clientinfo" Association="videoModel.FK_clientlogin_clientinfo">
+            <End Role="clientinfo" EntitySet="clientinfo" />
+            <End Role="clientlogin" EntitySet="clientlogin" />
+          </AssociationSet>
+          <AssociationSet Name="FK_hireinfo_clientinfo" Association="videoModel.FK_hireinfo_clientinfo">
+            <End Role="clientinfo" EntitySet="clientinfo" />
+            <End Role="hireinfo" EntitySet="hireinfo" />
+          </AssociationSet>
+          <AssociationSet Name="FK_hireinfo_videoinfo" Association="videoModel.FK_hireinfo_videoinfo">
+            <End Role="videoinfo" EntitySet="videoinfo" />
+            <End Role="hireinfo" EntitySet="hireinfo" />
+          </AssociationSet>
+          <AssociationSet Name="FK_recommend_videoinfo" Association="videoModel.FK_recommend_videoinfo">
+            <End Role="videoinfo" EntitySet="videoinfo" />
+            <End Role="recommend" EntitySet="recommend" />
+          </AssociationSet>
+          <AssociationSet Name="FK_review_videoinfo" Association="videoModel.FK_review_videoinfo">
+            <End Role="videoinfo" EntitySet="videoinfo" />
+            <End Role="review" EntitySet="review" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="admininfo">
+          <Key>
+            <PropertyRef Name="adminid" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="adminid" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="adminname" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="age" Type="Int32" />
+          <Property Name="worktime" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="adminlogin" Relationship="videoModel.FK_adminlogin_admininfo" FromRole="admininfo" ToRole="adminlogin" />
+          <NavigationProperty Name="hireinfo" Relationship="videoModel.FK_hireinfo_admininfo" FromRole="admininfo" ToRole="hireinfo" />
+        </EntityType>
+        <EntityType Name="adminlogin">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="adminid" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="password" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="admininfo" Relationship="videoModel.FK_adminlogin_admininfo" FromRole="adminlogin" ToRole="admininfo" />
+        </EntityType>
+        <EntityType Name="clientinfo">
+          <Key>
+            <PropertyRef Name="clientid" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="clientid" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="clientname" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="telphone" Type="String" MaxLength="20" Unicode="true" FixedLength="false" />
+          <Property Name="email" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="clientlogin" Relationship="videoModel.FK_clientlogin_clientinfo" FromRole="clientinfo" ToRole="clientlogin" />
+          <NavigationProperty Name="hireinfo" Relationship="videoModel.FK_hireinfo_clientinfo" FromRole="clientinfo" ToRole="hireinfo" />
+        </EntityType>
+        <EntityType Name="clientlogin">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="clientid" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="password" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="clientinfo" Relationship="videoModel.FK_clientlogin_clientinfo" FromRole="clientlogin" ToRole="clientinfo" />
+        </EntityType>
+        <EntityType Name="contact">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="email" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="telphone" Type="String" MaxLength="20" Unicode="true" FixedLength="false" />
+          <Property Name="message" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="hireinfo">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="videoid" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="clientid" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="adminid" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="isreturn" Type="Int32" />
+          <Property Name="borrowtime" Type="DateTime" Precision="3" />
+          <Property Name="returntime" Type="DateTime" Precision="3" />
+          <Property Name="rent" Type="Double" />
+          <Property Name="shouldtime" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="admininfo" Relationship="videoModel.FK_hireinfo_admininfo" FromRole="hireinfo" ToRole="admininfo" />
+          <NavigationProperty Name="clientinfo" Relationship="videoModel.FK_hireinfo_clientinfo" FromRole="hireinfo" ToRole="clientinfo" />
+          <NavigationProperty Name="videoinfo" Relationship="videoModel.FK_hireinfo_videoinfo" FromRole="hireinfo" ToRole="videoinfo" />
+        </EntityType>
+        <EntityType Name="recommend">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="videoid" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="videoinfo" Relationship="videoModel.FK_recommend_videoinfo" FromRole="recommend" ToRole="videoinfo" />
+        </EntityType>
+        <EntityType Name="review">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="videoid" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="name" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="email" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="message" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="reviewtime" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="videoinfo" Relationship="videoModel.FK_review_videoinfo" FromRole="review" ToRole="videoinfo" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" Nullable="false" MaxLength="128" Unicode="true" FixedLength="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="videoinfo">
+          <Key>
+            <PropertyRef Name="videoid" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="videoid" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="videoname" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="number" Type="Int32" />
+          <Property Name="price" Type="Double" />
+          <Property Name="buydate" Type="DateTime" Precision="0" />
+          <Property Name="describe" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="imageurl" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="clickrate" Type="Int32" />
+          <NavigationProperty Name="hireinfo" Relationship="videoModel.FK_hireinfo_videoinfo" FromRole="videoinfo" ToRole="hireinfo" />
+          <NavigationProperty Name="recommend" Relationship="videoModel.FK_recommend_videoinfo" FromRole="videoinfo" ToRole="recommend" />
+          <NavigationProperty Name="review" Relationship="videoModel.FK_review_videoinfo" FromRole="videoinfo" ToRole="review" />
+        </EntityType>
+        <Association Name="FK_adminlogin_admininfo">
+          <End Role="admininfo" Type="videoModel.admininfo" Multiplicity="0..1" />
+          <End Role="adminlogin" Type="videoModel.adminlogin" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="admininfo">
+              <PropertyRef Name="adminid" />
+            </Principal>
+            <Dependent Role="adminlogin">
+              <PropertyRef Name="adminid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_hireinfo_admininfo">
+          <End Role="admininfo" Type="videoModel.admininfo" Multiplicity="0..1" />
+          <End Role="hireinfo" Type="videoModel.hireinfo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="admininfo">
+              <PropertyRef Name="adminid" />
+            </Principal>
+            <Dependent Role="hireinfo">
+              <PropertyRef Name="adminid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_clientlogin_clientinfo">
+          <End Role="clientinfo" Type="videoModel.clientinfo" Multiplicity="0..1" />
+          <End Role="clientlogin" Type="videoModel.clientlogin" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="clientinfo">
+              <PropertyRef Name="clientid" />
+            </Principal>
+            <Dependent Role="clientlogin">
+              <PropertyRef Name="clientid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_hireinfo_clientinfo">
+          <End Role="clientinfo" Type="videoModel.clientinfo" Multiplicity="0..1" />
+          <End Role="hireinfo" Type="videoModel.hireinfo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="clientinfo">
+              <PropertyRef Name="clientid" />
+            </Principal>
+            <Dependent Role="hireinfo">
+              <PropertyRef Name="clientid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_hireinfo_videoinfo">
+          <End Role="videoinfo" Type="videoModel.videoinfo" Multiplicity="0..1" />
+          <End Role="hireinfo" Type="videoModel.hireinfo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="videoinfo">
+              <PropertyRef Name="videoid" />
+            </Principal>
+            <Dependent Role="hireinfo">
+              <PropertyRef Name="videoid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_recommend_videoinfo">
+          <End Role="videoinfo" Type="videoModel.videoinfo" Multiplicity="0..1" />
+          <End Role="recommend" Type="videoModel.recommend" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="videoinfo">
+              <PropertyRef Name="videoid" />
+            </Principal>
+            <Dependent Role="recommend">
+              <PropertyRef Name="videoid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_review_videoinfo">
+          <End Role="videoinfo" Type="videoModel.videoinfo" Multiplicity="0..1" />
+          <End Role="review" Type="videoModel.review" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="videoinfo">
+              <PropertyRef Name="videoid" />
+            </Principal>
+            <Dependent Role="review">
+              <PropertyRef Name="videoid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="videoModelStoreContainer" CdmEntityContainer="videoEntities">
+          <EntitySetMapping Name="admininfo">
+            <EntityTypeMapping TypeName="videoModel.admininfo">
+              <MappingFragment StoreEntitySet="admininfo">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="adminid" ColumnName="adminid" />
+                <ScalarProperty Name="adminname" ColumnName="adminname" />
+                <ScalarProperty Name="age" ColumnName="age" />
+                <ScalarProperty Name="worktime" ColumnName="worktime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="adminlogin">
+            <EntityTypeMapping TypeName="videoModel.adminlogin">
+              <MappingFragment StoreEntitySet="adminlogin">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="adminid" ColumnName="adminid" />
+                <ScalarProperty Name="password" ColumnName="password" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="clientinfo">
+            <EntityTypeMapping TypeName="videoModel.clientinfo">
+              <MappingFragment StoreEntitySet="clientinfo">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="clientid" ColumnName="clientid" />
+                <ScalarProperty Name="clientname" ColumnName="clientname" />
+                <ScalarProperty Name="telphone" ColumnName="telphone" />
+                <ScalarProperty Name="email" ColumnName="email" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="clientlogin">
+            <EntityTypeMapping TypeName="videoModel.clientlogin">
+              <MappingFragment StoreEntitySet="clientlogin">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="clientid" ColumnName="clientid" />
+                <ScalarProperty Name="password" ColumnName="password" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="contact">
+            <EntityTypeMapping TypeName="videoModel.contact">
+              <MappingFragment StoreEntitySet="contact">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="telphone" ColumnName="telphone" />
+                <ScalarProperty Name="message" ColumnName="message" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="hireinfo">
+            <EntityTypeMapping TypeName="videoModel.hireinfo">
+              <MappingFragment StoreEntitySet="hireinfo">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="videoid" ColumnName="videoid" />
+                <ScalarProperty Name="clientid" ColumnName="clientid" />
+                <ScalarProperty Name="adminid" ColumnName="adminid" />
+                <ScalarProperty Name="isreturn" ColumnName="isreturn" />
+                <ScalarProperty Name="borrowtime" ColumnName="borrowtime" />
+                <ScalarProperty Name="returntime" ColumnName="returntime" />
+                <ScalarProperty Name="rent" ColumnName="rent" />
+                <ScalarProperty Name="shouldtime" ColumnName="shouldtime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="recommend">
+            <EntityTypeMapping TypeName="videoModel.recommend">
+              <MappingFragment StoreEntitySet="recommend">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="videoid" ColumnName="videoid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="review">
+            <EntityTypeMapping TypeName="videoModel.review">
+              <MappingFragment StoreEntitySet="review">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="videoid" ColumnName="videoid" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="message" ColumnName="message" />
+                <ScalarProperty Name="reviewtime" ColumnName="reviewtime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="videoModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="videoinfo">
+            <EntityTypeMapping TypeName="videoModel.videoinfo">
+              <MappingFragment StoreEntitySet="videoinfo">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="videoid" ColumnName="videoid" />
+                <ScalarProperty Name="videoname" ColumnName="videoname" />
+                <ScalarProperty Name="number" ColumnName="number" />
+                <ScalarProperty Name="price" ColumnName="price" />
+                <ScalarProperty Name="buydate" ColumnName="buydate" />
+                <ScalarProperty Name="describe" ColumnName="describe" />
+                <ScalarProperty Name="imageurl" ColumnName="imageurl" />
+                <ScalarProperty Name="clickrate" ColumnName="clickrate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="无" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

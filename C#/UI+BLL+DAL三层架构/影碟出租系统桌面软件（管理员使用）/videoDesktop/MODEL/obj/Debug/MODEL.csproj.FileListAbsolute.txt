@@ -1,0 +1,10 @@
+F:\VS2012 工作目录\Web应用\自做项目\videoDesktop\MODEL\bin\Debug\MODEL.dll
+F:\VS2012 工作目录\Web应用\自做项目\videoDesktop\MODEL\bin\Debug\MODEL.pdb
+F:\VS2012 工作目录\Web应用\自做项目\videoDesktop\MODEL\obj\Debug\MODEL.dll
+F:\VS2012 工作目录\Web应用\自做项目\videoDesktop\MODEL\obj\Debug\MODEL.pdb
+F:\VS2012 工作目录\Web应用\自做项目\videoDesktop\MODEL\bin\Debug\MODEL.dll.config
+F:\VS2012 工作目录\Web应用\自做项目\videoDesktop\MODEL\bin\Debug\EntityFramework.dll
+F:\VS2012 工作目录\Web应用\自做项目\videoDesktop\MODEL\bin\Debug\EntityFramework.SqlServer.dll
+F:\VS2012 工作目录\Web应用\自做项目\videoDesktop\MODEL\bin\Debug\EntityFramework.xml
+F:\VS2012 工作目录\Web应用\自做项目\videoDesktop\MODEL\bin\Debug\EntityFramework.SqlServer.xml
+F:\VS2012 工作目录\Web应用\自做项目\videoDesktop\MODEL\obj\Debug\MODEL.csprojResolveAssemblyReference.cache
